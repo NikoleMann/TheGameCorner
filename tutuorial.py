@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import *
 from ctypes import windll
-from click_game import click_me
+from click_game import openNewWindow
 
 
 
@@ -16,35 +17,22 @@ message.pack()
 message2 = ttk.Label(root, text="Let's play a game!")
 message2.pack()
 
+#selection frame
+frame = LabelFrame(root, text="Choose your game:", padx=10, pady=10)
+frame.pack(padx=15, pady=15)
 #click me button
-
-
-click_me_button = ttk.Button(
-    root,
-    text="click me",
-    command=click_me
+click_game_button = ttk.Button(
+    frame,
+    text="clicker game",
+    command=openNewWindow
 )
 
-click_me_button.pack(
+click_game_button.pack(
     ipadx=5,
     ipady=5,
     expand=True
 )
 
-def callback():
-    print("HEllo World")
-
-game_1_button = ttk.Button(
-   root, 
-   text="Game 1", 
-   command=callback
-)
-
-game_1_button.pack(
-    ipadx=5,
-    ipady=5,
-    expand=True
-)
 #address the blur
 windll.shcore.SetProcessDpiAwareness(1)
 
